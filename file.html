@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle Page</title>
+    <style>
+        body {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .top-bar-logo img.logo {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+
+        .top-bar-links {
+            display: flex;
+        }
+
+        .top-bar-links a {
+            margin-right: 20px;
+            color: royalblue;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .top-bar-links a:hover {
+            color: darkblue;
+        }
+
+        .turtle-container {
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            color: royalblue;
+            margin-bottom: 30px;
+        }
+
+        .turtle-output {
+            margin-top: 20px;
+            width: 100%;
+            height: 300px;
+            border: 1px solid royalblue;
+            overflow: auto;
+            white-space: pre-wrap;
+            padding: 10px;
+            background-color: #f8f8f8;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .download-button {
+            margin-top: 20px;
+            background-color: royalblue;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .download-button:hover {
+            background-color: darkblue;
+        }
+
+        .dont-dare {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: red;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .dont-dare:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-logo">
+            <img src="https://t4.ftcdn.net/jpg/05/22/98/99/360_F_522989939_2XZDGHqJCCMegLZWJaEkKT0bc1Wrxhr8.jpg" alt="Logo" class="logo">
+            <h3>The Rudra</h3>
+        </div>
+        <div class="top-bar-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="registration.html">Register</a>
+        </div>
+    </div>
+    <div class="turtle-container fade-in">
+        <h1>Hello, World! in Python</h1>
+        <div class="turtle-output" id="turtleOutput"></div>
+        <button class="download-button" onclick="downloadHelloWorldCode()">Download Python Code</button>
+    </div>
+    <div class="dont-dare" onclick="redirectToCop()">Don't dare to click me</div>
+
+    <script>
+        function redirectToIndex() {
+            // Your existing code here
+        }
+
+        function redirectToCop() {
+            // Your existing code here
+        }
+
+        function downloadHelloWorldCode() {
+            var pythonCode = `
+# Hello, World! in Python
+print("Hello, World!")
+`;
+
+            var turtleOutput = document.getElementById('turtleOutput');
+            turtleOutput.textContent = pythonCode;
+
+            var blob = new Blob([pythonCode], { type: 'text/plain' });
+            var a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'hello_world.py';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
